@@ -1,6 +1,7 @@
 \documentclass[10pt,a4paper,twocolumn]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath,amsfonts,amssymb,graphicx,geometry,booktabs,multirow,fancyhdr,titlesec,caption,subcaption}
+\usepackage{amsmath,amsfonts,amssymb,graphicx,geometry,booktabs,multirow,fancyhdr,titlesec,caption,subcaption,float,dblfloatfix}
+\usepackage{tabularx}
 
 % Reduce spacing
 \setlength{\parskip}{0.5ex}
@@ -353,7 +354,7 @@ All anchors governed by minimum practical length requirements.
 \subsection{Results Summary for Task A}
 
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \caption{Tie-Rod Analysis Results}
 \begin{tabular}{@{}cccccc@{}}
@@ -433,61 +434,61 @@ Analysis shows that:
 
 \subsection{GEO5 Tool - step by step}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.54\textwidth]{profile.png}
+    \includegraphics[width=\columnwidth]{profile.png}
     \caption{Cross-sectional profile of the anchored retaining wall model in GEO5, showing the 9.0 m retained soil, 3.0 m excavation depth, soil layer properties, and initial wall configuration.}
     \label{fig:moment_diagram}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.54\textwidth]{soils.png}
+    \includegraphics[width=\columnwidth]{soils.png}
     \caption{Soil property input window in GEO5 showing defined parameters for medium dense sand. The values include a dry unit weight of 17.0 kN/m³, friction angle of 25°, and wall-soil interface angle of 16.5°, based on the assignment data for Student ID ending in 7.}
     \label{fig:soil_properties}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.54\textwidth]{Geometric.png}
+    \includegraphics[width=\columnwidth]{Geometric.png}
     \caption{Geometry setup showing 12.0 m wall with 3.0 m embedment in GEO5.}
     \label{fig:wall_geometry}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.54\textwidth]{anchor.png}
+    \includegraphics[width=\columnwidth]{anchor.png}
     \caption{Anchor configuration with tie-rods placed at 1.5 m, 2.0 m, and 3.0 m depths.}
     \label{fig:anchor_setup}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.0.54\textwidth]{Analysis1-Result.png}
+    \includegraphics[width=\columnwidth]{Analysis1-Result.png}
     \caption{Analysis setup with wall fixed at heel in GEO5.}
     \label{fig:wall_fixed_heel}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.0.54\textwidth]{Analysis2-Result.png}
+    \includegraphics[width=\columnwidth]{Analysis2-Result.png}
     \caption{Analysis setup with wall hinged at heel in GEO5.}
     \label{fig:wall_hinged_heel}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.54\textwidth]{Dimensioning-Result.png}
+    \includegraphics[width=\columnwidth]{Dimensioning-Result.png}
     \caption{2D dimensioned view of anchored retaining wall showing wall height, embedment, and anchor levels.}
     \label{fig:wall_dimensioning}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.54\textwidth]{Dimensioning 3d-Result.png}
+    \includegraphics[width=\columnwidth]{Dimensioning 3d-Result.png}
     \caption{3D visualization of the anchored retaining wall model in GEO5.}
     \label{fig:wall_3d_view}
 \end{figure}
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.54\textwidth]{Stability-Result.png}
+    \includegraphics[width=\columnwidth]{Stability-Result.png}
     \caption{Stability analysis output showing global safety and wall displacement behavior.}
     \label{fig:stability_analysis}
 \end{figure}
@@ -510,7 +511,7 @@ Design a geogrid reinforced soil vertical wall using light concrete panels, dete
 \end{itemize}
 
 \subsection{Available Geogrid Types}
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Geogrid Properties}
 \begin{tabular}{|c|c|}
@@ -630,7 +631,7 @@ T_{max} &= 0.406 \times 195.35 \times 0.9 = 71.44 \text{ kN/m} \\
 F_s &= \frac{110}{71.44} = 1.54 > 1.0 
 \end{align}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Preliminary Design Results}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -788,8 +789,9 @@ T_{max} &= 79.35 \times 0.9 = 71.42 \text{ kN/m} \\
 F_s &= \frac{110}{71.42} = 1.54 > 1.0 \\
 F_{s,pullout} &= \frac{2 \times 1.0 \times 195.35 \times 0.397 \times 2.8}{71.42} = 6.10 > 1.5
 \end{align}
-\begin{table}[h]
+\begin{table*}[htbp]
 \centering
+\small
 \caption{Detailed Design - Layer Analysis Results}
 \label{tab:detailed_design}
 \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -818,7 +820,7 @@ F_{s,pullout} &= \frac{2 \times 1.0 \times 195.35 \times 0.397 \times 2.8}{71.42
 10 & 8.55 & 0.406 & 71.42 & GX 110/30 & 1.54 & 6.10 \\
 \hline
 \end{tabular}
-\end{table}
+\end{table*}
 
 
 
@@ -865,10 +867,10 @@ F_{s,pullout} &= \frac{2 \times 1.0 \times 195.35 \times 0.397 \times 2.8}{71.42
 
 \subsection{Comparison of Alternatives}
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \caption{Comparison of Design Alternatives}
-\begin{tabular}{@{}lll@{}}
+\begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Aspect} & \textbf{Anchored Wall} & \textbf{MSE Wall} \\
 \midrule
@@ -883,7 +885,7 @@ Foundation Requirements & Deep excavation & Minimal preparation \\
 Design Sensitivity & High (tie-rod positioning) & Medium (geogrid spacing) \\
 Long-term Performance & Anchor corrosion risk & Geogrid creep potential \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \subsection{Key Findings}
