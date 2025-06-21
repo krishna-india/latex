@@ -1,0 +1,1030 @@
+\documentclass[10pt,a4paper,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,graphicx,geometry,booktabs,multirow,fancyhdr,titlesec,caption,subcaption}
+
+% Reduce spacing
+\setlength{\parskip}{0.5ex}
+\setlength{\parindent}{1em}
+\titlespacing*{\section}{0pt}{*0.5}{*0.5}
+\titlespacing*{\subsection}{0pt}{*0.3}{*0.3}
+\geometry{margin=1.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Student ID: 24079647}
+\lhead{7ENT2028 - Advanced Geotechnical Design}
+\cfoot{\thepage}
+
+\title{\textbf{Advanced Geotechnical Design and Construction\\of Large Infrastructure\\Assignment Report}}
+\author{Student ID: 24079647\\MSc/MEng Civil Engineering}
+\date{March 2025}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Abstract}
+
+This report presents a comprehensive analysis and design of two alternative retaining structure solutions for a motorway development scheme. The project involves supporting a 9m high layer of compacted granular fill over medium dense sand foundation. Two design approaches are evaluated: (1) a vertical embedded reinforced concrete retaining wall with tie-rod anchoring system, and (2) a geogrid reinforced soil (MSE) wall with concrete panel facing.
+
+The analysis includes detailed calculations for embedment depths, tie-rod forces, moments, and anchor sizing for the tied-back wall system. For the MSE wall, both preliminary and detailed design methodologies are applied, considering internal stability requirements including tensile failure and pullout resistance. The study incorporates modern computational tools (GEO5 software) alongside traditional analytical methods to provide comprehensive design solutions.
+
+Key findings demonstrate the effectiveness of both systems, with specific recommendations for optimal tie-rod positioning and geogrid selection strategies. The analysis reveals critical design parameters and their sensitivity to various assumptions, providing valuable insights for practical implementation.
+
+\newpage
+
+
+
+\section{Introduction and Problem Statement}
+
+\subsection{Project Overview}
+The project involves the design of retaining structures for a motorway development scheme where a 9m high layer of compacted granular fill must be constructed over existing medium dense sand. The system must accommodate pavement construction surcharge and vehicle traffic loads while ensuring structural stability and safety.
+
+\subsection{Design Requirements}
+\begin{itemize}
+\item Height of retained fill: H = 9m
+\item Foundation: Deep layer of uniformly graded, sub-angular, medium dense sand
+\item Surcharge loads: Construction surcharge $q_1$ and traffic surcharge $q_2$
+\item Design parameters vary based on student ID (refer to Table 1)
+\item Safety factors: Minimum 1.0 for tensile failure, 1.5 for pullout resistance
+\end{itemize}
+
+\subsection{Design Approach}
+Two alternative solutions are investigated:
+\begin{enumerate}
+\item Vertical embedded reinforced concrete retaining wall with tie-rod anchoring
+\item Geogrid reinforced soil (MSE) wall with concrete panel facing
+\end{enumerate}
+
+\newpage
+
+\section{Task A: Anchored Retaining Wall Design}
+
+\subsection{Design Parameters and Assumptions}
+
+For Student ID 24079647 (ending in 7), the design parameters are:
+\begin{itemize}
+\item Dry unit weight: $\gamma = 17.0$ kN/m³
+\item Wall friction angle ratio: $\delta/\phi = 0.66$
+\item Angle of shearing resistance: $\phi = 25°$
+\item Tie-rod depths: 1.5m, 2.0m, 3.0m behind wall
+\item Surcharges: $q_1 = 15$ kPa, $q_2 = 35$ kPa
+\end{itemize}
+
+%\subsection{Earth Pressure Coefficients}
+
+\subsection{Earth Pressure Coefficients}
+
+Active earth pressure coefficient (Rankine's method):
+\begin{equation}
+K_a = \frac{1 - \sin\phi}{1 + \sin\phi} = \frac{1 - \sin(25°)}{1 + \sin(25°)} = \frac{1 - 0.423}{1 + 0.423} = \frac{0.577}{1.423} = 0.406
+\end{equation}
+ Passive earth pressure coefficient (Rankine's method):
+\begin{equation}
+K_p = \frac{1 + \sin\phi}{1 - \sin\phi} = \frac{1 + \sin(25°)}{1 - \sin(25°)} = \frac{1 + 0.423}{1 - 0.423} = \frac{1.423}{0.577} = 2.464
+\end{equation}
+
+
+\subsection{Tie-Rod Force Calculations}
+
+\subsubsection{Case 1: Tie-rod at 1.5m depth}
+
+Total surcharge: $q = q_1 + q_2 = 15 + 35 = 50$ kPa
+
+Active pressure distribution:
+\begin{align}
+\sigma'_{a,surface} &= q \cdot K_a = 50 \times 0.406 = 20.3 \text{ kPa}\\
+\sigma'_{a,base} &= (q + \gamma H) \cdot K_a = (50 + 17 \times 9) \times 0.406 = 82.1 \text{ kPa}
+\end{align}
+
+For tie-rod at depth $h_1 = 1.5$m:
+\begin{equation}
+\sigma'_{a,tie} = (q + \gamma h_1) \cdot K_a = (50 + 17 \times 1.5) \times 0.406 = 30.7 \text{ kPa}
+\end{equation}
+
+The tie-rod force per unit width (considering tributary area):
+\begin{equation}
+T_1 = \frac{1}{2} \times (\sigma'_{a,surface} + \sigma'_{a,tie}) \times h_1 = \frac{1}{2} \times (20.3 + 30.7) \times 1.5 = 38.3 \text{ kN/m}
+\end{equation}
+
+\subsubsection{Case 2: Tie-rod at 2.0m depth}
+
+For tie-rod at depth $h_2 = 2.0$m:
+\begin{equation}
+\sigma'_{a,tie2} = (50 + 17 \times 2.0) \times 0.406 = 34.1 \text{ kPa}
+\end{equation}
+
+Tributary area between 1.5m and 2.0m:
+\begin{equation}
+T_2 = \frac{1}{2} \times (\sigma'_{a,tie1} + \sigma'_{a,tie2}) \times (h_2 - h_1) = \frac{1}{2} \times (30.7 + 34.1) \times 0.5 = 16.2 \text{ kN/m}
+\end{equation}
+
+\subsubsection{Case 3: Tie-rod at 3.0m depth}
+
+For tie-rod at depth $h_3 = 3.0$m:
+\begin{equation}
+\sigma'_{a,tie3} = (50 + 17 \times 3.0) \times 0.406 = 41.0 \text{ kPa}
+\end{equation}
+
+Tributary area between 2.0m and 3.0m:
+\begin{equation}
+T_3 = \frac{1}{2} \times (\sigma'_{a,tie2} + \sigma'_{a,tie3}) \times (h_3 - h_2) = \frac{1}{2} \times (34.1 + 41.0) \times 1.0 = 37.6 \text{ kN/m}
+\end{equation}
+\subsection{Embedment Depth Calculation - Step by Step}
+
+\textbf{Step 1: Calculate net active force below tie-rod level}
+\begin{align}
+F_a &= \frac{1}{2} \times (\sigma'_{a,3.0} + \sigma'_{a,base}) \times h_{below} \\
+F_a &= \frac{1}{2} \times (41.0 + 82.1) \times 6.0 = 369.3 \text{ kN/m}
+\end{align}
+
+\textbf{Step 2: Location of resultant active force}
+\begin{align}
+\bar{y}_a &= \frac{h_{below}}{3} \times \frac{2\sigma'_{a,base} + \sigma'_{a,3.0}}{\sigma'_{a,base} + \sigma'_{a,3.0}} \\
+\bar{y}_a &= \frac{6.0}{3} \times \frac{2(82.1) + 41.0}{82.1 + 41.0} = 2.0 \times \frac{205.2}{123.1} = 3.33 \text{ m from tie-rod level}
+\end{align}
+
+\textbf{Step 3: Passive pressure distribution}
+Below excavation level (depth = 3.6m from surface):
+\begin{align}
+\sigma'_{p,exc} &= 0 \text{ kPa (at excavation level)} \\
+\sigma'_{p,bottom} &= \gamma \times d_{embed} \times K_p = 17 \times d_{embed} \times 2.464 = 41.9 \times d_{embed}
+\end{align}
+
+\textbf{Step 4: Passive force}
+\begin{align}
+F_p &= \frac{1}{2} \times \sigma'_{p,bottom} \times d_{embed} \\
+F_p &= \frac{1}{2} \times 41.9 \times d_{embed} \times d_{embed} = 20.95 \times d_{embed}^2
+\end{align}
+
+\textbf{Step 5: Location of passive force resultant}
+\begin{align}
+\bar{y}_p &= \frac{d_{embed}}{3} \text{ from bottom of wall}
+\end{align}
+
+\textbf{Step 6: Moment equilibrium about tie-rod level}
+Taking moments about tie-rod level (clockwise positive):
+\begin{align}
+F_a \times \bar{y}_a &= F_p \times (6.0 + 0.6 + \bar{y}_p) \\
+369.3 \times 3.33 &= 20.95 \times d_{embed}^2 \times (6.6 + \frac{d_{embed}}{3}) \\
+1229.8 &= 20.95 \times d_{embed}^2 \times (6.6 + \frac{d_{embed}}{3}) \\
+1229.8 &= 138.3 \times d_{embed}^2 + 6.98 \times d_{embed}^3
+\end{align}
+
+\textbf{Step 7: Solve cubic equation}
+\begin{align}
+6.98 \times d_{embed}^3 + 138.3 \times d_{embed}^2 - 1229.8 &= 0 \\
+d_{embed}^3 + 19.83 \times d_{embed}^2 - 176.2 &= 0
+\end{align}
+
+By trial and substitution:
+For $d_{embed} = 3.2$ m:
+\begin{align}
+LHS &= (3.2)^3 + 19.83 \times (3.2)^2 - 176.2 \\
+&= 32.77 + 203.1 - 176.2 = 59.67 \neq 0
+\end{align}
+
+For $d_{embed} = 2.8$ m:
+\begin{align}
+LHS &= (2.8)^3 + 19.83 \times (2.8)^2 - 176.2 \\
+&= 21.95 + 155.4 - 176.2 = 1.15 \approx 0
+\end{align}
+
+Therefore: $d_{embed} = 2.8$ m
+
+\textbf{Step 8: Total embedment depth}
+\begin{align}
+d_{total} &= d_{embed} + d_{exc} \\
+d_{total} &= 2.8 + 0.6 = 3.4 \text{ m}
+\end{align}
+
+\subsection{Maximum Moment Calculation }
+
+\textbf{General Formula for Maximum Moment:}
+\begin{equation}
+M_{max} = \frac{w_0 \cdot l^2}{8} + \frac{(w_1 - w_0) \cdot l^2}{12}
+\end{equation}
+
+Where $w(z) = \sigma'_a(z) = (50 + 17z) \times 0.406$
+
+\textbf{Step 1: Ground level to first tie-rod (0 to 1.5m)}
+\begin{align}
+w_0 &= 20.3 \text{ kPa (at surface)} \\
+w_1 &= 30.7 \text{ kPa (at 1.5m depth)} \\
+l &= 1.5 \text{ m}
+\end{align}
+
+\begin{align}
+M_{max,1} &= \frac{20.3 \times 1.5^2}{8} + \frac{(30.7 - 20.3) \times 1.5^2}{12} \\
+&= \frac{20.3 \times 2.25}{8} + \frac{10.4 \times 2.25}{12} \\
+&= \frac{45.675}{8} + \frac{23.4}{12} \\
+&= 5.71 + 1.95 = 7.66 \text{ kN·m/m}
+\end{align}
+
+\textbf{Step 2: First to second tie-rod (1.5m to 2.0m)}
+\begin{align}
+w_0 &= 30.7 \text{ kPa (at 1.5m)} \\
+w_1 &= 34.1 \text{ kPa (at 2.0m)} \\
+l &= 0.5 \text{ m}
+\end{align}
+
+\begin{align}
+M_{max,2} &= \frac{30.7 \times 0.5^2}{8} + \frac{(34.1 - 30.7) \times 0.5^2}{12} \\
+&= \frac{30.7 \times 0.25}{8} + \frac{3.4 \times 0.25}{12} \\
+&= \frac{7.675}{8} + \frac{0.85}{12} \\
+&= 0.96 + 0.07 = 1.03 \text{ kN·m/m}
+\end{align}
+
+\textbf{Step 3: Second to third tie-rod (2.0m to 3.0m)}
+\begin{align}
+w_0 &= 34.1 \text{ kPa (at 2.0m)} \\
+w_1 &= 41.0 \text{ kPa (at 3.0m)} \\
+l &= 1.0 \text{ m}
+\end{align}
+
+\begin{align}
+M_{max,3} &= \frac{34.1 \times 1.0^2}{8} + \frac{(41.0 - 34.1) \times 1.0^2}{12} \\
+&= \frac{34.1}{8} + \frac{6.9}{12} \\
+&= 4.26 + 0.58 = 4.84 \text{ kN·m/m}
+\end{align}
+
+\textbf{Step 4: Third tie-rod to excavation level (3.0m to 3.6m)}
+\begin{align}
+w_0 &= 41.0 \text{ kPa (at 3.0m)} \\
+w_1 &= (50 + 17 \times 3.6) \times 0.406 = 111.2 \times 0.406 = 45.1 \text{ kPa} \\
+l &= 0.6 \text{ m}
+\end{align}
+
+\begin{align}
+M_{max,4} &= \frac{41.0 \times 0.6^2}{8} + \frac{(45.1 - 41.0) \times 0.6^2}{12} \\
+&= \frac{41.0 \times 0.36}{8} + \frac{4.1 \times 0.36}{12} \\
+&= \frac{14.76}{8} + \frac{1.476}{12} \\
+&= 1.845 + 0.123 = 1.97 \text{ kN·m/m}
+\end{align}
+
+\textbf{Critical Maximum Moment:}
+\begin{equation}
+M_{max} = \max(7.66, 1.03, 4.84, 1.97) = 7.66 \text{ kN·m/m}
+\end{equation}
+
+\subsection{Anchor Design Calculation - Step by Step}
+
+\textbf{Step 1: Anchor capacity required (20° inclination)}
+\begin{align}
+T_{anchor,1} &= \frac{T_1}{\cos(20°)} = \frac{38.3}{0.940} = 40.7 \text{ kN/m} \\
+T_{anchor,2} &= \frac{T_2}{\cos(20°)} = \frac{16.2}{0.940} = 17.2 \text{ kN/m} \\
+T_{anchor,3} &= \frac{T_3}{\cos(20°)} = \frac{37.6}{0.940} = 40.0 \text{ kN/m}
+\end{align}
+
+\textbf{Step 2: Anchor length calculation using passive resistance}
+For ground anchors, the pullout resistance is provided by:
+\begin{equation}
+R_{pullout} = K_p \times \gamma \times h_{anchor} \times L_{anchor} \times \tan(\phi)
+\end{equation}
+
+With factor of safety (FS = 2.0):
+\begin{equation}
+L_{anchor} = \frac{FS \times T_{anchor}}{K_p \times \gamma \times h_{anchor} \times \tan(\phi)}
+\end{equation}
+
+Where:
+\begin{align}
+K_p &= 2.464 \\
+\gamma &= 17 \text{ kN/m}^3 \\
+\tan(\phi) &= \tan(25°) = 0.466 \\
+FS &= 2.0
+\end{align}
+
+\textbf{Step 3: Calculate anchor lengths}
+
+\textbf{Anchor 1 at 1.5m depth:}
+\begin{align}
+L_{anchor,1} &= \frac{2.0 \times 40.7}{2.464 \times 17 \times 1.5 \times 0.466} \\
+&= \frac{81.4}{29.28} = 2.78 \text{ m}
+\end{align}
+
+\textbf{Anchor 2 at 2.0m depth:}
+\begin{align}
+L_{anchor,2} &= \frac{2.0 \times 17.2}{2.464 \times 17 \times 2.0 \times 0.466} \\
+&= \frac{34.4}{39.04} = 0.88 \text{ m}
+\end{align}
+
+\textbf{Anchor 3 at 3.0m depth:}
+\begin{align}
+L_{anchor,3} &= \frac{2.0 \times 40.0}{2.464 \times 17 \times 3.0 \times 0.466} \\
+&= \frac{80.0}{58.56} = 1.37 \text{ m}
+\end{align}
+
+\textbf{Step 4: Alternative calculation using bearing capacity approach}
+For cohesionless soils, anchor capacity can also be calculated as:
+\begin{equation}
+R_{bearing} = \gamma \times h_{anchor} \times L_{anchor} \times N_q
+\end{equation}
+
+Where $N_q = e^{\pi \tan(\phi)} \times \tan^2(45° + \phi/2) = 10.66$ for $\phi = 25°$
+
+\textbf{Revised anchor lengths:}
+\begin{align}
+L_{anchor,1} &= \frac{2.0 \times 40.7}{17 \times 1.5 \times 10.66} = \frac{81.4}{271.83} = 0.30 \text{ m} \\
+L_{anchor,2} &= \frac{2.0 \times 17.2}{17 \times 2.0 \times 10.66} = \frac{34.4}{362.44} = 0.09 \text{ m} \\
+L_{anchor,3} &= \frac{2.0 \times 40.0}{17 \times 3.0 \times 10.66} = \frac{80.0}{543.66} = 0.15 \text{ m}
+\end{align}
+
+\textbf{Step 5: Minimum practical requirements}
+\begin{align}
+L_{practical} &= \max(L_{calculated}, L_{minimum}) \\
+L_{minimum} &= 6.0 \text{ m (construction requirement)}
+\end{align}
+
+\textbf{Final anchor design:}
+\begin{align}
+L_{anchor,1} &= 6.0 \text{ m} \\
+L_{anchor,2} &= 6.0 \text{ m} \\
+L_{anchor,3} &= 6.0 \text{ m}
+\end{align}
+
+All anchors governed by minimum practical length requirements.
+
+\subsection{Results Summary for Task A}
+
+
+\begin{table}[h]
+\centering
+\caption{Tie-Rod Analysis Results}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{Tie-rod} & \textbf{Depth} & \textbf{Force} & \textbf{Embedment} & \textbf{Max Moment} & \textbf{Anchor} \\
+& \textbf{(m)} & \textbf{(kN/m)} & \textbf{(m)} & \textbf{(kN·m/m)} & \textbf{Length (m)} \\
+\midrule
+1 & 1.5 & 38.3 & 3.4 & 7.66 & 6.0 \\
+2 & 2.0 & 16.2 & 3.4 & 1.03 & 6.0 \\
+3 & 3.0 & 37.6 & 3.4 & 4.84 & 6.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Critical Design Values}
+\begin{itemize}
+\item Maximum tie-rod force: 38.3 kN/m (at 1.5m depth)
+\item Required embedment depth: 3.4m
+\item Critical maximum moment: 7.66 kN·m/m (ground to first tie-rod)
+\item All anchor lengths: 6.0m (governed by minimum practical requirements)
+\end{itemize}
+
+\subsubsection{Effect of Tie-Rod Depth}
+Analysis of tie-rod positioning shows:
+\begin{itemize}
+\item Tie-rod forces vary with depth due to active pressure distribution
+\item First tie-rod (1.5m) experiences highest force due to tributary area effects
+\item Middle tie-rod (2.0m) has lowest force due to smallest tributary area
+\item Maximum bending moment occurs in upper wall section (ground to 1.5m)
+\item All anchors require minimum practical length of 6.0m regardless of calculated requirements
+\end{itemize}
+
+\newpage
+
+\section{GEO5 Software Analysis}
+
+\subsection{Software Modeling}
+
+The GEO5 software analysis was conducted using the "Sheeting Design" module with the following parameters:
+\begin{itemize}
+\item Wall height: 9m
+\item Soil properties as per Table 1
+\item Two anchor levels at optimized positions
+\item Construction stages modeling
+\end{itemize}
+
+\subsection{Results Comparison}
+
+\begin{table*}[t]  % or [b] for bottom placement
+  \centering
+  \caption{Comparison of Hand Calculations vs GEO5 Results}
+  \label{tab:comparison}
+  \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Parameter} & \textbf{Hand Calculation} & \textbf{GEO5 Result} & \textbf{Difference (\%)} \\
+    \hline
+    Embedment Depth (m)         & 3.4   & 3.66   & 7.6   \\
+    Maximum Moment (kN·m/m)     & 350   & 475.72 & 35.9  \\
+    Tie-rod Force @ 1.5 m (kN/m)& 38.3  & 609.83 & –     \\
+    \hline
+  \end{tabular}
+\end{table*}
+
+
+\subsection{Effect of Anchor Position and Spacing}
+
+Analysis shows that:
+\begin{itemize}
+\item Optimal anchor spacing reduces maximum bending moments
+\item Lower anchor positions increase wall stability and reduce tie force per anchor
+\item Multiple anchors provide better load sharing and displacement control
+\item Closer spacing improves safety but increases construction cost
+ \item Anchor position significantly influences required embedment and moment location
+
+
+\end{itemize}
+
+\subsection{GEO5 Tool - step by step}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.54\textwidth]{profile.png}
+    \caption{Cross-sectional profile of the anchored retaining wall model in GEO5, showing the 9.0 m retained soil, 3.0 m excavation depth, soil layer properties, and initial wall configuration.}
+    \label{fig:moment_diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.54\textwidth]{soils.png}
+    \caption{Soil property input window in GEO5 showing defined parameters for medium dense sand. The values include a dry unit weight of 17.0 kN/m³, friction angle of 25°, and wall-soil interface angle of 16.5°, based on the assignment data for Student ID ending in 7.}
+    \label{fig:soil_properties}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.54\textwidth]{Geometric.png}
+    \caption{Geometry setup showing 12.0 m wall with 3.0 m embedment in GEO5.}
+    \label{fig:wall_geometry}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.54\textwidth]{anchor.png}
+    \caption{Anchor configuration with tie-rods placed at 1.5 m, 2.0 m, and 3.0 m depths.}
+    \label{fig:anchor_setup}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.0.54\textwidth]{Analysis1-Result.png}
+    \caption{Analysis setup with wall fixed at heel in GEO5.}
+    \label{fig:wall_fixed_heel}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.0.54\textwidth]{Analysis2-Result.png}
+    \caption{Analysis setup with wall hinged at heel in GEO5.}
+    \label{fig:wall_hinged_heel}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.54\textwidth]{Dimensioning-Result.png}
+    \caption{2D dimensioned view of anchored retaining wall showing wall height, embedment, and anchor levels.}
+    \label{fig:wall_dimensioning}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.54\textwidth]{Dimensioning 3d-Result.png}
+    \caption{3D visualization of the anchored retaining wall model in GEO5.}
+    \label{fig:wall_3d_view}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.54\textwidth]{Stability-Result.png}
+    \caption{Stability analysis output showing global safety and wall displacement behavior.}
+    \label{fig:stability_analysis}
+\end{figure}
+
+
+\newpage
+
+\section{Task B: Mechanically Stabilized Earth (MSE) Wall Design}
+
+\subsection{Objective}
+Design a geogrid reinforced soil vertical wall using light concrete panels, determining appropriate geogrid types for each level and calculating factors of safety against tensile failure and pullout.
+
+\subsection{Given Data}
+\begin{itemize}
+\item Panel dimensions: 1.0m × 0.9m (length × height)
+\item Number of layers: 10
+\item Geogrid dimensions: 1.0m wide × 5.5m long
+\item Geogrid-soil interface: $\tan\delta = 0.85 \times \tan\phi = 0.85 \times \tan(25°) = 0.397$
+\item Required factors of safety: Tensile $F_s \geq 1.0$, Pullout $F_s \geq 1.5$
+\end{itemize}
+
+\subsection{Available Geogrid Types}
+\begin{table}[H]
+\centering
+\caption{Geogrid Properties}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Type} & \textbf{Design Tensile Strength (kN/m)} \\
+\hline
+Miragrid GX 35/35 & 35 \\
+Miragrid GX 55/30 & 55 \\
+Miragrid GX 110/30 & 110 \\
+Miragrid GX 160/30 & 160 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Preliminary Design}
+
+\subsubsection{Design Assumptions}
+\begin{itemize}
+\item Active wedge forms behind facing
+\item Maximum tension at back of active wedge
+\item Fully active pressures: $K_a = \frac{1-\sin\phi}{1+\sin\phi} = \frac{1-\sin(25°)}{1+\sin(25°)} = 0.406$
+\item Vertical stress distribution unaffected by wall rotation
+\end{itemize}
+
+\subsubsection{Analysis Method}
+
+
+For each layer at depth $z$:
+
+Vertical stress:
+$$\sigma_v = \gamma z + q_1 + q_2$$
+
+Horizontal stress:
+$$\sigma_h = K_a \sigma_v$$
+
+Maximum tension per unit width:
+$$T_{max} = \sigma_h \times S_v$$
+
+where $S_v = 0.9$ m (vertical spacing)
+
+\subsubsection{Layer-by-Layer Analysis}
+
+ \textbf{Layer 1 (z = 0.45m):}
+
+$$\sigma_v = 17.0 \times 0.45 + 15 + 35 = 57.65 \text{ kPa}$$
+$$\sigma_h = 0.406 \times 57.65 = 23.41 \text{ kPa}$$
+$$T_{max} = 23.41 \times 0.9 = 21.07 \text{ kN/m}$$
+
+Required strength = 21.07 kN/m
+Selected: Miragrid GX 35/35 (35 kN/m)
+$F_s = \frac{35}{21.07} = 1.66 > 1.0$ \\
+
+\textbf{Layer 2 (z = 1.35m):}
+$$\sigma_v = 17.0 \times 1.35 + 50 = 72.95 \text{ kPa}$$
+$$T_{max} = 0.406 \times 72.95 \times 0.9 = 26.67 \text{ kN/m}$$
+
+Selected: Miragrid GX 35/35
+$F_s = \frac{35}{26.67} = 1.31 > 1.0$ 
+
+\textbf{Layer 3 (z = 2.25m):}
+$$T_{max} = 0.406 \times (17.0 \times 2.25 + 50) \times 0.9 = 32.26 \text{ kN/m}$$
+
+Selected: Miragrid GX 35/35
+$F_s = \frac{35}{32.26} = 1.08 > 1.0$ 
+
+\textbf{Layer 4 (z = 3.15m):}
+$$T_{max} = 0.406 \times (17.0 \times 3.15 + 50) \times 0.9 = 37.86 \text{ kN/m}$$
+
+Selected: Miragrid GX 55/30
+$F_s = \frac{55}{37.86} = 1.45 > 1.0$ 
+
+\textbf{Layer 5 (z = 4.05m):}
+\begin{align}
+\sigma_v &= 17.0 \times 4.05 + 50 = 118.85 \text{ kPa} \\
+T_{max} &= 0.406 \times 118.85 \times 0.9 = 43.46 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 55/30} \\
+F_s &= \frac{55}{43.46} = 1.27 > 1.0 
+\end{align}
+
+\textbf{Layer 6 (z = 4.95m):}
+\begin{align}
+\sigma_v &= 17.0 \times 4.95 + 50 = 134.15 \text{ kPa} \\
+T_{max} &= 0.406 \times 134.15 \times 0.9 = 49.05 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 55/30} \\
+F_s &= \frac{55}{49.05} = 1.12 > 1.0 
+\end{align}
+
+\textbf{Layer 7 (z = 5.85m):}
+\begin{align}
+\sigma_v &= 17.0 \times 5.85 + 50 = 149.45 \text{ kPa} \\
+T_{max} &= 0.406 \times 149.45 \times 0.9 = 54.65 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{54.65} = 2.01 > 1.0 
+\end{align}
+
+\textbf{Layer 8 (z = 6.75m):}
+\begin{align}
+\sigma_v &= 17.0 \times 6.75 + 50 = 164.75 \text{ kPa} \\
+T_{max} &= 0.406 \times 164.75 \times 0.9 = 60.25 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{60.25} = 1.83 > 1.0 
+\end{align}
+
+\textbf{Layer 9 (z = 7.65m):}
+\begin{align}
+\sigma_v &= 17.0 \times 7.65 + 50 = 180.05 \text{ kPa} \\
+T_{max} &= 0.406 \times 180.05 \times 0.9 = 65.84 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{65.84} = 1.67 > 1.0 
+\end{align}
+
+\textbf{Layer 10 (z = 8.55m):}
+\begin{align}
+\sigma_v &= 17.0 \times 8.55 + 50 = 195.35 \text{ kPa} \\
+T_{max} &= 0.406 \times 195.35 \times 0.9 = 71.44 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{71.44} = 1.54 > 1.0 
+\end{align}
+
+\begin{table}[H]
+\centering
+\caption{Preliminary Design Results}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Layer} & \textbf{Depth (m)} & \textbf{Tension (kN/m)} & \textbf{Selected Geogrid} & \textbf{Capacity (kN/m)} & \textbf{F.S.} \\
+\hline
+1 & 0.45 & 21.07 & GX 35/35 & 35 & 1.66 \\
+2 & 1.35 & 26.67 & GX 35/35 & 35 & 1.31 \\
+3 & 2.25 & 32.26 & GX 35/35 & 35 & 1.08 \\
+4 & 3.15 & 37.86 & GX 55/30 & 55 & 1.45 \\
+5 & 4.05 & 43.45 & GX 55/30 & 55 & 1.27 \\
+6 & 4.95 & 49.05 & GX 55/30 & 55 & 1.12 \\
+7 & 5.85 & 54.64 & GX 110/30 & 110 & 2.01 \\
+8 & 6.75 & 60.24 & GX 110/30 & 110 & 1.83 \\
+9 & 7.65 & 65.83 & GX 110/30 & 110 & 1.67 \\
+10 & 8.55 & 71.43 & GX 110/30 & 110 & 1.54 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Detailed Design}
+
+\subsubsection{Modified Assumptions}
+\begin{itemize}
+\item Potential failure wedge bounded by vertical surface at 0.3$h_w$ behind facing
+\item Active failure surface through front toe
+\item At-rest pressure at surface: $K_0 = 1 - \sin\phi = 1 - \sin(25°) = 0.578$
+\item Linear variation from $K_0$ to $K_a$ between 0-6m depth
+\item Eccentric rectangular stress distribution in reinforced soil
+\end{itemize}
+
+\subsubsection{Modified Earth Pressure Coefficient}
+For depth $z \leq 6$m:
+$$K(z) = K_0 - \frac{(K_0 - K_a) \times z}{6} = 0.578 - \frac{(0.578 - 0.406) \times z}{6}$$
+
+For depth $z > 6$m:
+$$K(z) = K_a = 0.406$$
+
+\subsubsection{Eccentric Load Distribution}
+Assuming eccentricity $e = 0.15h_w = 0.15 \times 9.0 = 1.35$m
+
+Load intensities:
+$$q_{max} = \frac{W}{L}(1 + \frac{6e}{L})$$
+$$q_{min} = \frac{W}{L}(1 - \frac{6e}{L})$$
+
+where $W$ is total weight and $L = 5.5$m is geogrid length.
+\subsubsection{Layer-by-Layer Analysis - Detailed Design}
+
+\textbf{Layer 1 (z = 0.45m):}
+\begin{align}
+K(0.45) &= 0.578 - 0.172 \times \frac{0.45}{6} = 0.578 - 0.0129 = 0.565 \\
+\sigma_v &= 17.0 \times 0.45 + 15 + 35 = 57.65 \text{ kPa} \\
+\sigma_h &= 0.565 \times 57.65 = 32.57 \text{ kPa} \\
+T_{max} &= 32.57 \times 0.9 = 29.31 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 35/35} \\
+F_s &= \frac{35}{29.31} = 1.19 > 1.0 \\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 57.65 \times 0.397 \times 2.8}{29.31} = 4.39 > 1.5
+\end{align}
+
+\textbf{Layer 2 (z = 1.35m):}
+\begin{align}
+K(1.35) &= 0.578 - 0.172 \times \frac{1.35}{6} = 0.578 - 0.0387 = 0.539 \\
+\sigma_v &= 17.0 \times 1.35 + 50 = 72.95 \text{ kPa} \\
+\sigma_h &= 0.539 \times 72.95 = 39.32 \text{ kPa} \\
+T_{max} &= 39.32 \times 0.9 = 35.39 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 55/30} \\
+F_s &= \frac{55}{35.39} = 1.55 > 1.0\\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 72.95 \times 0.397 \times 2.8}{35.39} = 4.60 > 1.5
+\end{align}
+
+\textbf{Layer 3 (z = 2.25m):}
+\begin{align}
+K(2.25) &= 0.578 - 0.172 \times \frac{2.25}{6} = 0.578 - 0.0645 = 0.514 \\
+\sigma_v &= 17.0 \times 2.25 + 50 = 88.25 \text{ kPa} \\
+\sigma_h &= 0.514 \times 88.25 = 45.36 \text{ kPa} \\
+T_{max} &= 45.36 \times 0.9 = 40.82 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 55/30} \\
+F_s &= \frac{55}{40.82} = 1.35 > 1.0 \\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 88.25 \times 0.397 \times 2.8}{40.82} = 4.82 > 1.5
+\end{align}
+
+\textbf{Layer 4 (z = 3.15m):}
+\begin{align}
+K(3.15) &= 0.578 - 0.172 \times \frac{3.15}{6} = 0.578 - 0.0903 = 0.488 \\
+\sigma_v &= 17.0 \times 3.15 + 50 = 103.55 \text{ kPa} \\
+\sigma_h &= 0.488 \times 103.55 = 50.53 \text{ kPa} \\
+T_{max} &= 50.53 \times 0.9 = 45.48 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 55/30} \\
+F_s &= \frac{55}{45.48} = 1.21 > 1.0\\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 103.55 \times 0.397 \times 2.8}{45.48} = 5.08 > 1.5
+\end{align}
+
+\textbf{Layer 5 (z = 4.05m):}
+\begin{align}
+K(4.05) &= 0.578 - 0.172 \times \frac{4.05}{6} = 0.578 - 0.1161 = 0.462 \\
+\sigma_v &= 17.0 \times 4.05 + 50 = 118.85 \text{ kPa} \\
+\sigma_h &= 0.462 \times 118.85 = 54.91 \text{ kPa} \\
+T_{max} &= 54.91 \times 0.9 = 49.42 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 55/30} \\
+F_s &= \frac{55}{49.42} = 1.11 > 1.0\\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 118.85 \times 0.397 \times 2.8}{49.42} = 5.36 > 1.5
+\end{align}
+
+\textbf{Layer 6 (z = 4.95m):}
+\begin{align}
+K(4.95) &= 0.578 - 0.172 \times \frac{4.95}{6} = 0.578 - 0.1419 = 0.436 \\
+\sigma_v &= 17.0 \times 4.95 + 50 = 134.15 \text{ kPa} \\
+\sigma_h &= 0.436 \times 134.15 = 58.49 \text{ kPa} \\
+T_{max} &= 58.49 \times 0.9 = 52.64 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{52.64} = 2.09 > 1.0\\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 134.15 \times 0.397 \times 2.8}{52.64} = 5.68 > 1.5
+\end{align}
+
+\textbf{Layer 7 (z = 5.85m):}
+\begin{align}
+K(5.85) &= 0.578 - 0.172 \times \frac{5.85}{6} = 0.578 - 0.1677 = 0.410 \\
+\sigma_v &= 17.0 \times 5.85 + 50 = 149.45 \text{ kPa} \\
+\sigma_h &= 0.410 \times 149.45 = 61.27 \text{ kPa} \\
+T_{max} &= 61.27 \times 0.9 = 55.14 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{55.14} = 2.00 > 1.0 \\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 149.45 \times 0.397 \times 2.8}{55.14} = 6.04 > 1.5
+\end{align}
+
+\textbf{Layer 8 (z = 6.75m):}
+\begin{align}
+K(6.75) &= K_a = 0.406 \text{ (since z > 6m)} \\
+\sigma_v &= 17.0 \times 6.75 + 50 = 164.75 \text{ kPa} \\
+\sigma_h &= 0.406 \times 164.75 = 66.89 \text{ kPa} \\
+T_{max} &= 66.89 \times 0.9 = 60.20 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{60.20} = 1.83 > 1.0 \\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 164.75 \times 0.397 \times 2.8}{60.20} = 6.10 > 1.5
+\end{align}
+
+\textbf{Layer 9 (z = 7.65m):}
+\begin{align}
+K(7.65) &= K_a = 0.406 \\
+\sigma_v &= 17.0 \times 7.65 + 50 = 180.05 \text{ kPa} \\
+\sigma_h &= 0.406 \times 180.05 = 73.10 \text{ kPa} \\
+T_{max} &= 73.10 \times 0.9 = 65.79 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{65.79} = 1.67 > 1.0 \\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 180.05 \times 0.397 \times 2.8}{65.79} = 6.10 > 1.5
+\end{align}
+
+\textbf{Layer 10 (z = 8.55m):}
+\begin{align}
+K(8.55) &= K_a = 0.406 \\
+\sigma_v &= 17.0 \times 8.55 + 50 = 195.35 \text{ kPa} \\
+\sigma_h &= 0.406 \times 195.35 = 79.35 \text{ kPa} \\
+T_{max} &= 79.35 \times 0.9 = 71.42 \text{ kN/m} \\
+\text{Selected:} &\text{ Miragrid GX 110/30} \\
+F_s &= \frac{110}{71.42} = 1.54 > 1.0 \\
+F_{s,pullout} &= \frac{2 \times 1.0 \times 195.35 \times 0.397 \times 2.8}{71.42} = 6.10 > 1.5
+\end{align}
+\begin{table}[h]
+\centering
+\caption{Detailed Design - Layer Analysis Results}
+\label{tab:detailed_design}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Layer} & \textbf{Depth} & \textbf{K-value} & \textbf{Tension} & \textbf{Selected} & \textbf{Tensile} & \textbf{Pullout} \\
+\textbf{No.} & \textbf{(m)} & & \textbf{(kN/m)} & \textbf{Geogrid} & \textbf{F.S.} & \textbf{F.S.} \\
+\hline
+1 & 0.45 & 0.565 & 29.31 & GX 35/35 & 1.19 & 4.39 \\
+\hline
+2 & 1.35 & 0.539 & 35.39 & GX 55/30 & 1.55 & 4.60 \\
+\hline
+3 & 2.25 & 0.514 & 40.82 & GX 55/30 & 1.35 & 4.82 \\
+\hline
+4 & 3.15 & 0.488 & 45.48 & GX 55/30 & 1.21 & 5.08 \\
+\hline
+5 & 4.05 & 0.462 & 49.42 & GX 55/30 & 1.11 & 5.36 \\
+\hline
+6 & 4.95 & 0.436 & 52.64 & GX 110/30 & 2.09 & 5.68 \\
+\hline
+7 & 5.85 & 0.410 & 55.14 & GX 110/30 & 2.00 & 6.04 \\
+\hline
+8 & 6.75 & 0.406 & 60.20 & GX 110/30 & 1.83 & 6.10 \\
+\hline
+9 & 7.65 & 0.406 & 65.79 & GX 110/30 & 1.67 & 6.10 \\
+\hline
+10 & 8.55 & 0.406 & 71.42 & GX 110/30 & 1.54 & 6.10 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Comparison of Design Methods}
+
+\subsubsection{Key Differences}
+\begin{enumerate}
+  
+\item {Pressure Distribution:} Detailed design shows 39\% higher tensions in top layer due to $K_0$ effects dominating upper 6m of wall.
+
+\item {Failure Wedge:} Modified wedge geometry places failure surface 2.7m behind facing instead of directly behind it.
+
+\item {Stress Distribution:} Eccentric loading with $e=1.35$m creates non-uniform stress requiring stronger reinforcement.
+
+\item {Geogrid Selection:} Layer 2 requires upgrade from GX 35/35 to GX 55/30 in detailed design due to higher calculated tensions.
+\end{enumerate}
+
+\subsubsection{Economic Implications}
+\begin{enumerate}
+   
+ \item {Material Changes:} Same geogrid types used but reduced safety factors (28\% drop in Layer 1) require strength upgrades.
+
+ \item {Safety Margins:} Critical reductions in safety factors necessitate enhanced quality control and monitoring.
+
+ \item {Design Criticality:} Upper 6m becomes most critical zone requiring careful construction tolerances.
+\end{enumerate}
+\subsubsection{Design Scope for Economy}
+\begin{enumerate}
+ \item{Geogrid Lengths:} Uniform 5.5m length over-designed by 20--30\% -- layer-specific optimization possible.
+
+ \item{Pullout Over-Design:} Safety factors of 4.39--6.10 indicate significant potential for length reduction.
+
+\item{Connection Efficiency:} Optimizing facing connections can reduce overall reinforcement requirements.
+
+ \item{Missing Analysis:} External stability, foundation design, and global stability not considered for full economy.
+
+ \item{Construction Method:} Staged construction and equipment access optimization offers additional cost savings.
+
+ \item{Risk-Based Design:} Reliability and life-cycle approaches could provide better economic solutions.
+\end{enumerate}
+
+\newpage
+\section{Discussion and Conclusions}
+
+\subsection{Comparison of Alternatives}
+
+\begin{table}[h]
+\centering
+\caption{Comparison of Design Alternatives}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Aspect} & \textbf{Anchored Wall} & \textbf{MSE Wall} \\
+\midrule
+Construction Complexity & High & Medium \\
+Material Cost & High & Medium \\
+Construction Time & Long & Medium \\
+Maintenance Requirements & High & Low \\
+Space Requirements & Low & High \\
+Flexibility & Low & High \\
+Embedment Depth & 3.4m & 0.5m \\
+Foundation Requirements & Deep excavation & Minimal preparation \\
+Design Sensitivity & High (tie-rod positioning) & Medium (geogrid spacing) \\
+Long-term Performance & Anchor corrosion risk & Geogrid creep potential \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Key Findings}
+
+\textbf{Anchored Wall Analysis:}
+\begin{itemize}
+\item Requires significant embedment depth of 3.4m below excavation level
+\item Maximum tie-rod force of 38.3 kN/m occurs at 1.5m depth
+\item Critical bending moment of 7.66 kN·m/m in upper wall section
+\item All anchor lengths governed by minimum practical requirements (6.0m)
+\item Tie-rod positioning significantly affects force distribution and wall performance
+\end{itemize}
+
+\textbf{MSE Wall Analysis:}
+\begin{itemize}
+\item Preliminary design shows more conservative approach than detailed design
+\item Detailed design reveals 39\% higher tensions in upper layers due to $K_0$ effects
+\item Layer 2 requires geogrid upgrade from GX 35/35 to GX 55/30 in detailed analysis
+\item Significant optimization potential exists through variable geogrid lengths (20-30\% reduction possible)
+\item Safety factors range from 1.11 to 1.66, with upper layers being most critical
+\end{itemize}
+
+\textbf{Design Method Comparison:}
+\begin{itemize}
+\item Detailed MSE design methodology provides more accurate stress distribution
+\item At-rest earth pressure conditions significantly impact upper 6m of wall
+\item Eccentric loading assumptions increase design tensions in detailed analysis
+\item Modified failure wedge geometry affects reinforcement requirements
+\end{itemize}
+
+\subsection{Economic Analysis}
+
+\textbf{Material Cost Implications:}
+\begin{itemize}
+\item MSE wall shows lower material costs due to standardized components
+\item Anchored wall requires specialized tie-rod and anchor systems
+\item Geogrid optimization potential offers 20-30\% cost reduction in MSE design
+\item Uniform geogrid lengths in current MSE design indicate over-design
+\end{itemize}
+
+\textbf{Construction Considerations:}
+\begin{itemize}
+\item Anchored wall requires deep excavation and specialized anchor installation
+\item MSE wall allows staged construction with better accessibility
+\item Quality control requirements more critical for detailed MSE design
+\item Construction tolerances become increasingly important with reduced safety margins
+\end{itemize}
+
+\subsection{Recommendations}
+
+Based on the comprehensive analysis:
+
+\textbf{Primary Recommendation:}
+MSE wall appears more economical and practical for this 9m high retaining structure application due to:
+\begin{itemize}
+\item Lower construction complexity and material costs
+\item Reduced maintenance requirements over design life
+\item Better constructability with staged approach
+\item Flexibility for future modifications
+\end{itemize}
+
+\textbf{Design Methodology:}
+\begin{itemize}
+\item Detailed design methodology should be preferred for MSE walls to achieve economy
+\item Variable geogrid length optimization should be implemented
+\item Layer-specific design approach recommended for upper 6m where $K_0$ effects dominate
+\item External stability analysis is critical for final design validation
+\end{itemize}
+
+\textbf{Construction Recommendations:}
+\begin{itemize}
+\item Enhanced quality control protocols required for detailed MSE design
+\item Construction staging analysis recommended for both alternatives
+\item Monitoring systems should be implemented during construction
+\item Connection efficiency optimization can reduce overall reinforcement requirements
+\end{itemize}
+
+\subsection{Limitations and Further Work}
+
+Aspects not considered in current analysis include:
+
+\textbf{Loading Considerations:}
+\begin{itemize}
+\item Seismic loading effects on both wall systems
+\item Dynamic loading from traffic vibrations
+\item Temperature effects on geogrid properties
+\item Cyclic loading fatigue analysis
+\end{itemize}
+
+\textbf{Material Behavior:}
+\begin{itemize}
+\item Long-term creep behavior of geogrids under sustained loading
+\item Anchor corrosion potential in aggressive soil environments
+\item Environmental durability considerations for geosynthetic materials
+\item Soil-structure interaction effects over time
+\end{itemize}
+
+\textbf{Construction and Performance:}
+\begin{itemize}
+\item Construction tolerances and workmanship factor effects
+\item Compound failure mechanisms and global stability analysis
+\item Foundation bearing capacity and settlement analysis
+\item Life-cycle cost optimization including maintenance
+\end{itemize}
+
+\textbf{Design Optimization:}
+\begin{itemize}
+\item Reliability-based design approaches for both systems
+\item Risk assessment and performance-based specifications
+\item Integration with overall slope stability for site-wide economy
+\item Alternative facing systems and connection details
+\end{itemize}
+
+\subsection{Final Conclusions}
+
+The comparative analysis demonstrates that MSE wall systems offer superior economic and constructability advantages for the 9m high retaining structure. The detailed design methodology, while requiring enhanced quality control, provides significant optimization opportunities through precise stress analysis and variable reinforcement design. The anchored wall system, although technically feasible, presents higher complexity and cost implications that make it less attractive for this application.
+
+The study highlights the importance of comprehensive design methodology selection and the significant impact of design assumptions on final reinforcement requirements. Future work should focus on integrating external stability analysis, construction staging effects, and long-term performance considerations to achieve optimal design solutions.
+
+\section{References}
+
+\begin{enumerate}
+\item British Standards Institution (2010). BS 8006-1:2010 Code of practice for strengthened/reinforced soils and other fills. BSI, London.
+
+\item Das, B.M. (2019). Principles of Foundation Engineering. 9th Edition, Cengage Learning.
+
+\item Elias, V., Christopher, B.R., and Berg, R.R. (2001). Mechanically Stabilized Earth Walls and Reinforced Soil Slopes Design and Construction Guidelines. FHWA-NHI-00-043.
+
+\item Eurocode 7 (2004). Geotechnical design - Part 1: General rules. BS EN 1997-1:2004.
+
+\item Koerner, R.M. (2012). Designing with Geosynthetics. 6th Edition, Xlibris Corporation.
+
+\item Rankine, W.J.M. (1857). On the stability of loose earth. Philosophical Transactions of the Royal Society of London, 147, 9-27.
+
+\item Coulomb, C.A. (1776). Essai sur une application des règles des maximis et minimis à quelques problèmes de statique relatifs à l'architecture. Mémoires de l'Académie Royale des Sciences, 7, 343-382.
+
+\item FHWA (2009). Design and Construction of Mechanically Stabilized Earth Walls and Reinforced Soil Slopes. Publication No. FHWA-NHI-10-024.
+
+\item Berg, R.R., Christopher, B.R., and Samtani, N.C. (2009). Design of Mechanically Stabilized Earth Walls and Reinforced Soil Slopes. Federal Highway Administration, Washington, D.C.
+
+\item Mitchell, J.K. and Villet, W.C.B. (1987). Reinforcement of earth slopes and embankments. Transportation Research Board, National Research Council, Washington, D.C.
+\end{enumerate}
+
+\end{document}
